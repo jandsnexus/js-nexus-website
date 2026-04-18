@@ -10,9 +10,11 @@
 
   <title>J&S Nexus</title>
 
-  <!-- Luxus Schrift -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
 
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
   <style>
 
@@ -26,87 +28,493 @@
 
     }
 
+    html {
+
+      scroll-behavior: smooth;
+
+    }
+
     body {
 
-      background: #0b0d0c;
+      background:
 
-      color: #e8e8e8;
+        radial-gradient(circle at top left, rgba(40, 70, 55, 0.35), transparent 30%),
+
+        radial-gradient(circle at top right, rgba(120, 95, 35, 0.18), transparent 25%),
+
+        linear-gradient(180deg, #070909 0%, #0b0f0d 45%, #0a0c0b 100%);
+
+      color: #f2efe8;
 
       font-family: 'Inter', sans-serif;
+
+      line-height: 1.6;
+
+    }
+
+    a {
+
+      text-decoration: none;
+
+      color: inherit;
+
+    }
+
+    .container {
+
+      width: min(1200px, 90%);
+
+      margin: 0 auto;
+
+    }
+
+    .gold {
+
+      color: #c8a96b;
+
+    }
+
+    .green {
+
+      color: #6f8f78;
+
+    }
+
+    .section-label {
+
+      color: #c8a96b;
+
+      letter-spacing: 2px;
+
+      text-transform: uppercase;
+
+      font-size: 0.8rem;
+
+      margin-bottom: 14px;
+
+    }
+
+    nav {
+
+      position: sticky;
+
+      top: 0;
+
+      z-index: 50;
+
+      backdrop-filter: blur(10px);
+
+      background: rgba(7, 9, 9, 0.6);
+
+      border-bottom: 1px solid rgba(200, 169, 107, 0.12);
+
+    }
+
+    .nav-inner {
+
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: center;
+
+      padding: 20px 0;
+
+    }
+
+    .logo {
+
+      font-family: 'Cormorant Garamond', serif;
+
+      font-size: 2rem;
+
+      letter-spacing: 2px;
+
+      color: #f7f3eb;
+
+    }
+
+    .logo span {
+
+      color: #c8a96b;
+
+    }
+
+    .nav-links {
+
+      display: flex;
+
+      gap: 28px;
+
+      font-size: 0.95rem;
+
+      color: #d8d3c9;
+
+    }
+
+    .nav-links a:hover {
+
+      color: #c8a96b;
 
     }
 
     .hero {
 
-      height: 100vh;
+      min-height: 100vh;
+
+      display: grid;
+
+      grid-template-columns: 1.2fr 0.8fr;
+
+      align-items: center;
+
+      gap: 50px;
+
+      padding: 80px 0 60px;
+
+    }
+
+    .hero-text h1 {
+
+      font-family: 'Cormorant Garamond', serif;
+
+      font-size: clamp(4rem, 9vw, 7.5rem);
+
+      line-height: 0.95;
+
+      font-weight: 600;
+
+      margin-bottom: 24px;
+
+      color: #f7f3eb;
+
+    }
+
+    .hero-text p {
+
+      max-width: 650px;
+
+      color: #cfc8bc;
+
+      font-size: 1.08rem;
+
+      margin-bottom: 30px;
+
+    }
+
+    .hero-buttons {
 
       display: flex;
 
-      flex-direction: column;
+      gap: 16px;
 
-      justify-content: center;
-
-      padding: 80px;
-
-      background: radial-gradient(circle at top left, #0f1a14, #0b0d0c);
-
-    }
-
-    h1 {
-
-      font-family: 'Playfair Display', serif;
-
-      font-size: 6rem;
-
-      letter-spacing: 3px;
-
-      margin-bottom: 20px;
-
-      color: #f5f5f5;
-
-    }
-
-    .accent {
-
-      color: #3e6b52;
-
-    }
-
-    p {
-
-      font-size: 1.3rem;
-
-      color: #a0a0a0;
-
-      max-width: 500px;
+      flex-wrap: wrap;
 
     }
 
     .btn {
 
-      margin-top: 50px;
-
       display: inline-block;
 
-      padding: 14px 32px;
+      padding: 14px 28px;
 
-      border: 1px solid #3e6b52;
+      border: 1px solid #c8a96b;
 
-      text-decoration: none;
+      color: #f7f3eb;
 
-      color: #e8e8e8;
+      transition: 0.3s ease;
 
-      transition: all 0.3s ease;
-
-      letter-spacing: 1px;
+      letter-spacing: 0.4px;
 
     }
 
     .btn:hover {
 
-      background: #3e6b52;
+      background: #c8a96b;
 
-      color: #0b0d0c;
+      color: #0a0c0b;
+
+    }
+
+    .btn.secondary {
+
+      border-color: rgba(255,255,255,0.18);
+
+      color: #d7d2c7;
+
+    }
+
+    .btn.secondary:hover {
+
+      background: #1a221d;
+
+      color: #f7f3eb;
+
+      border-color: #6f8f78;
+
+    }
+
+    .hero-card {
+
+      background: linear-gradient(180deg, rgba(18, 24, 21, 0.95), rgba(12, 15, 14, 0.96));
+
+      border: 1px solid rgba(200, 169, 107, 0.18);
+
+      border-radius: 24px;
+
+      padding: 32px;
+
+      box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+
+    }
+
+    .hero-card .small {
+
+      color: #c8a96b;
+
+      text-transform: uppercase;
+
+      letter-spacing: 2px;
+
+      font-size: 0.78rem;
+
+      margin-bottom: 14px;
+
+    }
+
+    .hero-card h3 {
+
+      font-family: 'Cormorant Garamond', serif;
+
+      font-size: 2rem;
+
+      margin-bottom: 18px;
+
+      color: #f6f2ea;
+
+    }
+
+    .hero-card p {
+
+      color: #c9c2b7;
+
+      margin-bottom: 14px;
+
+    }
+
+    .hero-card strong {
+
+      color: #f6f2ea;
+
+      font-weight: 500;
+
+    }
+
+    .section {
+
+      padding: 90px 0;
+
+    }
+
+    .about-grid {
+
+      display: grid;
+
+      grid-template-columns: 1fr 1fr;
+
+      gap: 40px;
+
+      align-items: start;
+
+    }
+
+    .about h2,
+
+    .services h2 {
+
+      font-family: 'Cormorant Garamond', serif;
+
+      font-size: clamp(2.4rem, 5vw, 4rem);
+
+      margin-bottom: 18px;
+
+      color: #f7f3eb;
+
+    }
+
+    .about p {
+
+      color: #cec7bb;
+
+      margin-bottom: 16px;
+
+      font-size: 1rem;
+
+    }
+
+    .about-box {
+
+      background: rgba(17, 21, 19, 0.88);
+
+      border: 1px solid rgba(111, 143, 120, 0.2);
+
+      border-radius: 22px;
+
+      padding: 28px;
+
+    }
+
+    .names {
+
+      display: grid;
+
+      gap: 18px;
+
+    }
+
+    .name-item {
+
+      border-bottom: 1px solid rgba(200, 169, 107, 0.14);
+
+      padding-bottom: 18px;
+
+    }
+
+    .name-item:last-child {
+
+      border-bottom: none;
+
+      padding-bottom: 0;
+
+    }
+
+    .name-item h4 {
+
+      font-family: 'Cormorant Garamond', serif;
+
+      font-size: 1.8rem;
+
+      color: #f7f3eb;
+
+      margin-bottom: 6px;
+
+    }
+
+    .name-item p {
+
+      color: #cfc8bc;
+
+      margin: 0;
+
+    }
+
+    .services-grid {
+
+      margin-top: 36px;
+
+      display: grid;
+
+      grid-template-columns: repeat(3, 1fr);
+
+      gap: 24px;
+
+    }
+
+    .service-card {
+
+      background: linear-gradient(180deg, rgba(18, 23, 20, 0.95), rgba(11, 14, 13, 0.96));
+
+      border: 1px solid rgba(200, 169, 107, 0.14);
+
+      border-radius: 22px;
+
+      padding: 28px;
+
+      transition: transform 0.25s ease, border-color 0.25s ease;
+
+    }
+
+    .service-card:hover {
+
+      transform: translateY(-6px);
+
+      border-color: rgba(200, 169, 107, 0.35);
+
+    }
+
+    .service-card h3 {
+
+      font-family: 'Cormorant Garamond', serif;
+
+      font-size: 2rem;
+
+      margin-bottom: 12px;
+
+      color: #f5f1e8;
+
+    }
+
+    .service-card p {
+
+      color: #c9c2b7;
+
+      font-size: 0.98rem;
+
+    }
+
+    footer {
+
+      padding: 36px 0 50px;
+
+      border-top: 1px solid rgba(200, 169, 107, 0.12);
+
+      color: #b9b1a4;
+
+      font-size: 0.95rem;
+
+    }
+
+    @media (max-width: 900px) {
+
+      .hero,
+
+      .about-grid,
+
+      .services-grid {
+
+        grid-template-columns: 1fr;
+
+      }
+
+      .hero {
+
+        padding-top: 50px;
+
+      }
+
+      .nav-inner {
+
+        flex-direction: column;
+
+        gap: 14px;
+
+      }
+
+      .nav-links {
+
+        flex-wrap: wrap;
+
+        justify-content: center;
+
+        gap: 16px;
+
+      }
+
+      .hero-text h1 {
+
+        line-height: 1;
+
+      }
 
     }
 
@@ -116,17 +524,214 @@
 
 <body>
 
-  <div class="hero">
+  <nav>
 
-    <h1>J<span class="accent">&</span>S</h1>
+    <div class="container nav-inner">
 
-    <p>AI Automation. Chatbots. Web Design.</p>
+      <div class="logo">J<span>&</span>S Nexus</div>
 
-    <a href="#" class="btn">Mehr erfahren</a>
+      <div class="nav-links">
 
-  </div>
+        <a href="#about">Über uns</a>
+
+        <a href="#services">Leistungen</a>
+
+        <a href="#contact">Kontakt</a>
+
+      </div>
+
+    </div>
+
+  </nav>
+
+  <main class="container">
+
+    <section class="hero">
+
+      <div class="hero-text">
+
+        <div class="section-label">Luxury Digital Presence</div>
+
+        <h1>J<span class="gold">&</span>S</h1>
+
+        <p>
+
+          Wir entwickeln hochwertige digitale Lösungen für Unternehmen –
+
+          mit Fokus auf <span class="green">Webdesign</span>,
+
+          <span class="green">KI-Automatisierung</span>,
+
+          <span class="green">Chatbots</span> und moderne digitale Abläufe.
+
+        </p>
+
+        <div class="hero-buttons">
+
+          <a href="#services" class="btn">Leistungen ansehen</a>
+
+          <a href="#about" class="btn secondary">Mehr über uns</a>
+
+        </div>
+
+      </div>
+
+      <div class="hero-card">
+
+        <div class="small">Founder Identity</div>
+
+        <h3>Hinter J<span class="gold">&</span>S stehen zwei Brüder.</h3>
+
+        <p><strong>J</strong> steht für <strong>Yadvir Singh</strong>, auch bekannt als <strong>Joy</strong>.</p>
+
+        <p><strong>S</strong> steht für <strong>Samreen Singh</strong>.</p>
+
+        <p>
+
+          Gemeinsam verbinden wir Ästhetik, Technik und zukunftsorientierte
+
+          Systeme, um Firmen professionell beim digitalen Auftritt und bei
+
+          intelligenten Prozessen zu unterstützen.
+
+        </p>
+
+      </div>
+
+    </section>
+
+    <section class="section about" id="about">
+
+      <div class="about-grid">
+
+        <div>
+
+          <div class="section-label">Über uns</div>
+
+          <h2>Modern. Strategisch. Hochwertig.</h2>
+
+          <p>
+
+            Wir sind zwei Brüder mit Fokus auf modernes Webdesign,
+
+            KI-gestützte Lösungen, Chatbot-Entwicklung und smarte Automatisierungen
+
+            für Unternehmen.
+
+          </p>
+
+          <p>
+
+            Unser Anspruch ist es, digitale Systeme zu gestalten, die nicht nur
+
+            modern aussehen, sondern Unternehmen wirklich voranbringen.
+
+          </p>
+
+          <p>
+
+            Dabei verbinden wir eine klare visuelle Sprache mit technischen Lösungen,
+
+            die professionell, effizient und zukunftsorientiert wirken.
+
+          </p>
+
+        </div>
+
+        <div class="about-box">
+
+          <div class="names">
+
+            <div class="name-item">
+
+              <h4>J — Yadvir Singh</h4>
+
+              <p>Auch bekannt als Joy. Fokus auf digitale Ideen, modernes Auftreten und smarte Umsetzung.</p>
+
+            </div>
+
+            <div class="name-item">
+
+              <h4>S — Samreen Singh</h4>
+
+              <p>Mit Fokus auf Struktur, Technologie und starke Lösungen für Unternehmen im digitalen Raum.</p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <section class="section services" id="services">
+
+      <div class="section-label">Leistungen</div>
+
+      <h2>Was wir für Firmen umsetzen</h2>
+
+      <div class="services-grid">
+
+        <div class="service-card">
+
+          <h3>Webdesign</h3>
+
+          <p>
+
+            Hochwertige Websites mit modernem Look, klarer Struktur und einem
+
+            professionellen Markenauftritt.
+
+          </p>
+
+        </div>
+
+        <div class="service-card">
+
+          <h3>Chatbots</h3>
+
+          <p>
+
+            Intelligente Chatbot-Lösungen für Unternehmen, um Kommunikation,
+
+            Support und Kundenerfahrung effizienter zu gestalten.
+
+          </p>
+
+        </div>
+
+        <div class="service-card">
+
+          <h3>Automatisierung</h3>
+
+          <p>
+
+            Digitale Prozesse vereinfachen, Abläufe optimieren und mit KI-gestützten
+
+            Systemen Zeit und Ressourcen sparen.
+
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer id="contact">
+
+    <div class="container">
+
+      J&S Nexus — Webdesign, KI-Automatisierung und Chatbot-Lösungen für Unternehmen.
+
+    </div>
+
+  </footer>
 
 </body>
 
 </html>
-
