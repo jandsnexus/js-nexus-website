@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 
 <html lang="de">
 
@@ -40,8 +40,6 @@
 
         radial-gradient(circle at top left, rgba(40, 70, 55, 0.35), transparent 30%),
 
-        radial-gradient(circle at top right, rgba(120, 95, 35, 0.18), transparent 25%),
-
         linear-gradient(180deg, #070909 0%, #0b0f0d 45%, #0a0c0b 100%);
 
       color: #f2efe8;
@@ -50,13 +48,35 @@
 
       line-height: 1.6;
 
+      overflow-x: hidden;
+
     }
 
-    a {
+    .cursor-glow {
 
-      text-decoration: none;
+      position: fixed;
 
-      color: inherit;
+      width: 320px;
+
+      height: 320px;
+
+      border-radius: 50%;
+
+      background: radial-gradient(circle, rgba(200,169,107,0.18), rgba(111,143,120,0.12), transparent 70%);
+
+      pointer-events: none;
+
+      transform: translate(-50%, -50%);
+
+      filter: blur(70px);
+
+      z-index: 0;
+
+      left: 50%;
+
+      top: 50%;
+
+      transition: left 0.08s linear, top 0.08s linear;
 
     }
 
@@ -66,31 +86,9 @@
 
       margin: 0 auto;
 
-    }
+      position: relative;
 
-    .gold {
-
-      color: #c8a96b;
-
-    }
-
-    .green {
-
-      color: #6f8f78;
-
-    }
-
-    .section-label {
-
-      color: #c8a96b;
-
-      letter-spacing: 2px;
-
-      text-transform: uppercase;
-
-      font-size: 0.8rem;
-
-      margin-bottom: 14px;
+      z-index: 2;
 
     }
 
@@ -100,11 +98,11 @@
 
       top: 0;
 
-      z-index: 50;
+      z-index: 20;
 
-      backdrop-filter: blur(10px);
+      backdrop-filter: blur(12px);
 
-      background: rgba(7, 9, 9, 0.6);
+      background: rgba(7, 9, 9, 0.55);
 
       border-bottom: 1px solid rgba(200, 169, 107, 0.12);
 
@@ -144,11 +142,17 @@
 
       display: flex;
 
-      gap: 28px;
+      gap: 24px;
 
-      font-size: 0.95rem;
+    }
+
+    .nav-links a {
 
       color: #d8d3c9;
+
+      text-decoration: none;
+
+      font-size: 0.95rem;
 
     }
 
@@ -166,31 +170,53 @@
 
       grid-template-columns: 1.2fr 0.8fr;
 
+      gap: 40px;
+
       align-items: center;
 
-      gap: 50px;
+      padding: 70px 0;
 
-      padding: 80px 0 60px;
+      position: relative;
+
+      z-index: 2;
 
     }
 
-    .hero-text h1 {
+    .label {
+
+      color: #c8a96b;
+
+      text-transform: uppercase;
+
+      letter-spacing: 2px;
+
+      font-size: 0.8rem;
+
+      margin-bottom: 14px;
+
+    }
+
+    .hero h1 {
 
       font-family: 'Cormorant Garamond', serif;
 
-      font-size: clamp(4rem, 9vw, 7.5rem);
+      font-size: clamp(4rem, 9vw, 7rem);
 
       line-height: 0.95;
 
-      font-weight: 600;
-
-      margin-bottom: 24px;
+      margin-bottom: 20px;
 
       color: #f7f3eb;
 
     }
 
-    .hero-text p {
+    .hero h1 span {
+
+      color: #c8a96b;
+
+    }
+
+    .hero p {
 
       max-width: 650px;
 
@@ -222,9 +248,9 @@
 
       color: #f7f3eb;
 
-      transition: 0.3s ease;
+      text-decoration: none;
 
-      letter-spacing: 0.4px;
+      transition: 0.3s ease;
 
     }
 
@@ -236,25 +262,7 @@
 
     }
 
-    .btn.secondary {
-
-      border-color: rgba(255,255,255,0.18);
-
-      color: #d7d2c7;
-
-    }
-
-    .btn.secondary:hover {
-
-      background: #1a221d;
-
-      color: #f7f3eb;
-
-      border-color: #6f8f78;
-
-    }
-
-    .hero-card {
+    .card {
 
       background: linear-gradient(180deg, rgba(18, 24, 21, 0.95), rgba(12, 15, 14, 0.96));
 
@@ -268,7 +276,7 @@
 
     }
 
-    .hero-card .small {
+    .card .small {
 
       color: #c8a96b;
 
@@ -282,31 +290,23 @@
 
     }
 
-    .hero-card h3 {
+    .card h3 {
 
       font-family: 'Cormorant Garamond', serif;
 
       font-size: 2rem;
 
-      margin-bottom: 18px;
+      margin-bottom: 16px;
 
       color: #f6f2ea;
 
     }
 
-    .hero-card p {
+    .card p {
 
       color: #c9c2b7;
 
-      margin-bottom: 14px;
-
-    }
-
-    .hero-card strong {
-
-      color: #f6f2ea;
-
-      font-weight: 500;
+      margin-bottom: 12px;
 
     }
 
@@ -314,27 +314,17 @@
 
       padding: 90px 0;
 
-    }
+      position: relative;
 
-    .about-grid {
-
-      display: grid;
-
-      grid-template-columns: 1fr 1fr;
-
-      gap: 40px;
-
-      align-items: start;
+      z-index: 2;
 
     }
 
-    .about h2,
-
-    .services h2 {
+    .section h2 {
 
       font-family: 'Cormorant Garamond', serif;
 
-      font-size: clamp(2.4rem, 5vw, 4rem);
+      font-size: clamp(2.5rem, 5vw, 4rem);
 
       margin-bottom: 18px;
 
@@ -342,75 +332,17 @@
 
     }
 
-    .about p {
+    .section-intro {
 
       color: #cec7bb;
 
-      margin-bottom: 16px;
+      max-width: 760px;
 
-      font-size: 1rem;
-
-    }
-
-    .about-box {
-
-      background: rgba(17, 21, 19, 0.88);
-
-      border: 1px solid rgba(111, 143, 120, 0.2);
-
-      border-radius: 22px;
-
-      padding: 28px;
-
-    }
-
-    .names {
-
-      display: grid;
-
-      gap: 18px;
-
-    }
-
-    .name-item {
-
-      border-bottom: 1px solid rgba(200, 169, 107, 0.14);
-
-      padding-bottom: 18px;
-
-    }
-
-    .name-item:last-child {
-
-      border-bottom: none;
-
-      padding-bottom: 0;
-
-    }
-
-    .name-item h4 {
-
-      font-family: 'Cormorant Garamond', serif;
-
-      font-size: 1.8rem;
-
-      color: #f7f3eb;
-
-      margin-bottom: 6px;
-
-    }
-
-    .name-item p {
-
-      color: #cfc8bc;
-
-      margin: 0;
+      margin-bottom: 34px;
 
     }
 
     .services-grid {
-
-      margin-top: 36px;
 
       display: grid;
 
@@ -464,13 +396,15 @@
 
     footer {
 
-      padding: 36px 0 50px;
+      padding: 40px 0 50px;
 
       border-top: 1px solid rgba(200, 169, 107, 0.12);
 
       color: #b9b1a4;
 
-      font-size: 0.95rem;
+      position: relative;
+
+      z-index: 2;
 
     }
 
@@ -478,17 +412,9 @@
 
       .hero,
 
-      .about-grid,
-
       .services-grid {
 
         grid-template-columns: 1fr;
-
-      }
-
-      .hero {
-
-        padding-top: 50px;
 
       }
 
@@ -506,14 +432,6 @@
 
         justify-content: center;
 
-        gap: 16px;
-
-      }
-
-      .hero-text h1 {
-
-        line-height: 1;
-
       }
 
     }
@@ -523,6 +441,8 @@
 </head>
 
 <body>
+
+  <div class="cursor-glow"></div>
 
   <nav>
 
@@ -548,21 +468,17 @@
 
     <section class="hero">
 
-      <div class="hero-text">
+      <div>
 
-        <div class="section-label">Luxury Digital Presence</div>
+        <div class="label">Luxury Digital Presence</div>
 
-        <h1>J<span class="gold">&</span>S</h1>
+        <h1>J<span>&</span>S</h1>
 
         <p>
 
-          Wir entwickeln hochwertige digitale Lösungen für Unternehmen –
+          Wir entwickeln hochwertige digitale Lösungen für Unternehmen —
 
-          mit Fokus auf <span class="green">Webdesign</span>,
-
-          <span class="green">KI-Automatisierung</span>,
-
-          <span class="green">Chatbots</span> und moderne digitale Abläufe.
+          mit Fokus auf Webdesign, KI-Automatisierung, Chatbots und moderne digitale Abläufe.
 
         </p>
 
@@ -570,29 +486,27 @@
 
           <a href="#services" class="btn">Leistungen ansehen</a>
 
-          <a href="#about" class="btn secondary">Mehr über uns</a>
+          <a href="#about" class="btn">Mehr über uns</a>
 
         </div>
 
       </div>
 
-      <div class="hero-card">
+      <div class="card">
 
         <div class="small">Founder Identity</div>
 
-        <h3>Hinter J<span class="gold">&</span>S stehen zwei Brüder.</h3>
+        <h3>Zwei Brüder. Eine moderne Vision.</h3>
 
-        <p><strong>J</strong> steht für <strong>Yadveer Singh</strong>, auch bekannt als <strong>Joy</strong>.</p>
+        <p><strong>J</strong> steht für <strong>Yadvir Singh</strong>, auch bekannt als <strong>Joy</strong>.</p>
 
         <p><strong>S</strong> steht für <strong>Samreen Singh</strong>.</p>
 
         <p>
 
-          Gemeinsam verbinden wir Ästhetik, Technik und zukunftsorientierte
+          Gemeinsam verbinden wir Ästhetik, Technik und zukunftsorientierte Systeme,
 
-          Systeme, um Firmen professionell beim digitalen Auftritt und bei
-
-          intelligenten Prozessen zu unterstützen.
+          um Firmen professionell beim digitalen Auftritt und bei intelligenten Prozessen zu unterstützen.
 
         </p>
 
@@ -600,75 +514,25 @@
 
     </section>
 
-    <section class="section about" id="about">
+    <section class="section" id="about">
 
-      <div class="about-grid">
+      <div class="label">Über uns</div>
 
-        <div>
+      <h2>Modern. Strategisch. Hochwertig.</h2>
 
-          <div class="section-label">Über uns</div>
+      <p class="section-intro">
 
-          <h2>Modern. Strategisch. Hochwertig.</h2>
+        Wir sind zwei Brüder mit Fokus auf modernes Webdesign, KI-gestützte Lösungen,
 
-          <p>
+        Chatbot-Entwicklung und smarte Automatisierungen für Unternehmen.
 
-            Wir sind zwei Brüder mit Fokus auf modernes Webdesign,
-
-            KI-gestützte Lösungen, Chatbot-Entwicklung und smarte Automatisierungen
-
-            für Unternehmen.
-
-          </p>
-
-          <p>
-
-            Unser Anspruch ist es, digitale Systeme zu gestalten, die nicht nur
-
-            modern aussehen, sondern Unternehmen wirklich voranbringen.
-
-          </p>
-
-          <p>
-
-            Dabei verbinden wir eine klare visuelle Sprache mit technischen Lösungen,
-
-            die professionell, effizient und zukunftsorientiert wirken.
-
-          </p>
-
-        </div>
-
-        <div class="about-box">
-
-          <div class="names">
-
-            <div class="name-item">
-
-              <h4>J — Yadveer Singh</h4>
-
-              <p>Auch bekannt als Joy. Fokus auf digitale Ideen, modernes Auftreten und smarte Umsetzung.</p>
-
-            </div>
-
-            <div class="name-item">
-
-              <h4>S — Samreen Singh</h4>
-
-              <p>Mit Fokus auf Struktur, Technologie und starke Lösungen für Unternehmen im digitalen Raum.</p>
-
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
+      </p>
 
     </section>
 
-    <section class="section services" id="services">
+    <section class="section" id="services">
 
-      <div class="section-label">Leistungen</div>
+      <div class="label">Leistungen</div>
 
       <h2>Was wir für Firmen umsetzen</h2>
 
@@ -678,13 +542,7 @@
 
           <h3>Webdesign</h3>
 
-          <p>
-
-            Hochwertige Websites mit modernem Look, klarer Struktur und einem
-
-            professionellen Markenauftritt.
-
-          </p>
+          <p>Hochwertige Websites mit modernem Look, klarer Struktur und professionellem Markenauftritt.</p>
 
         </div>
 
@@ -692,13 +550,7 @@
 
           <h3>Chatbots</h3>
 
-          <p>
-
-            Intelligente Chatbot-Lösungen für Unternehmen, um Kommunikation,
-
-            Support und Kundenerfahrung effizienter zu gestalten.
-
-          </p>
+          <p>Intelligente Chatbot-Lösungen für Unternehmen, um Kommunikation und Kundenerfahrung effizienter zu gestalten.</p>
 
         </div>
 
@@ -706,13 +558,7 @@
 
           <h3>Automatisierung</h3>
 
-          <p>
-
-            Digitale Prozesse vereinfachen, Abläufe optimieren und mit KI-gestützten
-
-            Systemen Zeit und Ressourcen sparen.
-
-          </p>
+          <p>Digitale Prozesse vereinfachen, Abläufe optimieren und mit modernen Systemen Zeit sparen.</p>
 
         </div>
 
@@ -731,6 +577,20 @@
     </div>
 
   </footer>
+
+  <script>
+
+    const glow = document.querySelector('.cursor-glow');
+
+    document.addEventListener('mousemove', (e) => {
+
+      glow.style.left = e.clientX + 'px';
+
+      glow.style.top = e.clientY + 'px';
+
+    });
+
+  </script>
 
 </body>
 
